@@ -14,7 +14,7 @@ export default async function AdminPage() {
   const profiles = profilesResult.data;
   const generations = generationsResult.data;
   const votes = votesResult.data;
-  const databaseErrors = [profilesResult.error, generationsResult.error, votesResult.error].filter((error): error is { message: string } => error !== null).map((error) => error.message);
+  const databaseErrors = [profilesResult.error, generationsResult.error, votesResult.error].map((error) => error?.message).filter((message): message is string => typeof message === "string");
   const scoreFor = (id: string) => (votes ?? []).filter((vote) => vote.generation_id === id).reduce((total, vote) => total + vote.value, 0);
   const media = (generations ?? []).map((item) => ({ ...item, score: scoreFor(item.id), imageUrl: item.image_path ? db.storage.from("memes").getPublicUrl(item.image_path).data.publicUrl : null }));
   const best = [...media].sort((a, b) => b.score - a.score)[0];
