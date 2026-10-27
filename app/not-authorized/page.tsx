@@ -1,0 +1,2 @@
+import Link from "next/link";
+export default function NotAuthorized() { return <main className="grid min-h-screen place-items-center p-6 text-center"><div><p className="text-5xl">🔒</p><h1 className="display mt-4 text-4xl font-black">Admin access only</h1><p className="mt-3 text-[#68764d]">Your Google account is signed in, but it is not approved as a superadmin.</p><Link href="/" className="mt-6 inline-block underline">Return home</Link></div></main>; }

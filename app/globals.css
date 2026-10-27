@@ -1,0 +1,4 @@
+@import "tailwindcss";
+:root { --cream: #f1e8d7; --ink: #34451b; }
+body { background: var(--cream); color: var(--ink); font-family: Arial, Helvetica, sans-serif; }
+.display { font-family: Georgia, "Times New Roman", serif; }
